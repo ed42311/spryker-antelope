@@ -9,6 +9,12 @@
         <action>index</action>
         <icon>fa-th-large</icon>
     </dashboard>
+    <antelope>
+        <label>Antelope</label>
+        <title>Antelope</title>
+        <uri>/antelope</uri>
+        <icon>fa-globe</icon>
+    </antelope>
     <sales>
         <label>Sales</label>
         <uri>/sales</uri>

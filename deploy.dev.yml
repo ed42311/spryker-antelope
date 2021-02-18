@@ -1,6 +1,6 @@
 version: "0.1"
 
-namespace: spryker_b2c_dev
+namespace: spryker_antelope
 tag: 'dev'
 
 environment: docker.dev
@@ -186,8 +186,9 @@ docker:
         native:
             platforms:
                 - linux
-
-        docker-sync:
+        mutagen:
             platforms:
                 - macos
+        docker-sync:
+            platforms:
                 - windows
