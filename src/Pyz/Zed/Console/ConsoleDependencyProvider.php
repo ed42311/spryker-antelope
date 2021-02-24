@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Console;
 
+use SprykerMiddleware\Zed\Process\Communication\Console\ProcessConsole;
 use Pyz\Zed\DataImport\DataImportConfig;
 use Pyz\Zed\Development\Communication\Console\AcceptanceCodeTestConsole;
 use Pyz\Zed\Development\Communication\Console\ApiCodeTestConsole;
@@ -260,6 +261,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             // Setup commands
             new RunnerConsole(),
             new DeployPreparePropelConsole(),
+            new ProcessConsole(),
 
             new DatabaseDropConsole(),
             new DatabaseDropTablesConsole(),

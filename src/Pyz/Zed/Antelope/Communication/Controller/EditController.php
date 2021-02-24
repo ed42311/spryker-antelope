@@ -32,8 +32,6 @@ class EditController extends AbstractController
         $dataProvider = $this->getFactory()->createAntelopeUpdateFormDataProvider();
         $formData = $dataProvider->getData($idAntelope);
 
-
-
         if ($formData === []) {
             return $this->redirectResponse(AntelopeConstants::URL_ANTELOPE_LIST_PAGE);
         }
