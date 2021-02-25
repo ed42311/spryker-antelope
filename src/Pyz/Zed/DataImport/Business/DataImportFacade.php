@@ -212,4 +212,16 @@ class DataImportFacade extends SprykerDataImportFacade implements DataImportFaca
     {
         $this->getFactory()->createCombinedProductConcretePropelDataSetWriter()->flush();
     }
+
+    /**
+     * @param array $data
+     *
+     * @return void
+     */
+    public function importExampleProducts(array $data): void
+    {
+        $this->getFactory()
+            ->createProductConcreteMiddlewareDataImporter()
+            ->import($data);
+    }
 }

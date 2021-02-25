@@ -146,4 +146,11 @@ interface DataImportFacadeInterface extends SprykerDataImportFacadeInterface
      * @return void
      */
     public function flushCombinedProductConcreteDataImporter(): void;
+
+    /**
+     * @param array $data
+     *
+     * @return void
+     */
+    public function importExampleProducts(array $data): void;
 }

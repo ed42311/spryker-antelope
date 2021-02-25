@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Process;
 
 use Pyz\Zed\AntelopeMiddlewareConnector\Communication\Plugin\Configuration\AntelopeMiddlewareConnectorConfigurationProfilePlugin;
+use Pyz\Zed\ExampleProductMiddlewareConnector\Communication\Plugin\Configuration\ExampleProductMiddlewareConnectorConfigurationProfilePlugin;
 use SprykerMiddleware\Zed\Process\ProcessDependencyProvider as SprykerProcessDependencyProvider;
 
 class ProcessDependencyProvider extends SprykerProcessDependencyProvider
@@ -14,6 +15,7 @@ class ProcessDependencyProvider extends SprykerProcessDependencyProvider
     {
         return [
             new AntelopeMiddlewareConnectorConfigurationProfilePlugin(),
+            new ExampleProductMiddlewareConnectorConfigurationProfilePlugin(),
         ];
     }
 }

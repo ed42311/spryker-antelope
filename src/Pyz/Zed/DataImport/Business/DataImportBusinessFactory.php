@@ -8,6 +8,7 @@
 namespace Pyz\Zed\DataImport\Business;
 
 use Pyz\Zed\DataImport\Business\Model\Antelope\AntelopeWriterStep;
+use Pyz\Zed\CategoryDataImport\Business\Importer\DataImporterInterface as PyzDataImporterInterface;
 use Generated\Shared\Transfer\DataImportConfigurationActionTransfer;
 use Generated\Shared\Transfer\DataImporterConfigurationTransfer;
 use Pyz\Zed\DataImport\Business\CombinedProduct\Product\CombinedAttributesExtractorStep;
@@ -818,6 +819,15 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataImporter->setDataSetWriter($this->createProductConcreteDataImportWriters());
 
         return $dataImporter;
+    }
+
+    public function createExampleProductMiddlewareDataImporter(): PyzDataImporterInterface
+    {
+        return new ProductConcreteDataImporter(
+            $this->createDataImporterPublisher(),
+            $this->createProductAbstractImportDataSetStepBroker(),
+            $this->createDataSet()
+        );
     }
 
     /**
