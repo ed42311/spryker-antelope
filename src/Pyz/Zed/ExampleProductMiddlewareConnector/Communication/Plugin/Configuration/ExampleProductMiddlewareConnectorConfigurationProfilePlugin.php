@@ -16,8 +16,7 @@ class ExampleProductMiddlewareConnectorConfigurationProfilePlugin extends Abstra
      */
     public function getProcessConfigurationPlugins(): array
     {
-        return $this->getFactory()
-            ->getExampleProductProcesses();
+        return $this->getFactory()->getProductConcreteProcesses();
     }
 
     /**
@@ -25,8 +24,7 @@ class ExampleProductMiddlewareConnectorConfigurationProfilePlugin extends Abstra
      */
     public function getTranslatorFunctionPlugins(): array
     {
-        return $this->getFactory()
-            ->getExampleProductTranslatorFunctions();
+        return [];
     }
 
     /**
@@ -34,6 +32,7 @@ class ExampleProductMiddlewareConnectorConfigurationProfilePlugin extends Abstra
      */
     public function getValidatorPlugins(): array
     {
-        return [];
+        return $this->getFactory()
+            ->getProductConcreteValidatorPluginStack();
     }
 }

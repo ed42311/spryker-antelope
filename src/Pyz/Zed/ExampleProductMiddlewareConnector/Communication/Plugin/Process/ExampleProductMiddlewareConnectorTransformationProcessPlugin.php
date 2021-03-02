@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\ExampleProductMiddlewareConnector\Communication\Plugin\Configuration;
+namespace Pyz\Zed\ExampleProductMiddlewareConnector\Communication\Plugin\Process;
 
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use SprykerMiddleware\Zed\Process\Dependency\Plugin\Configuration\ProcessConfigurationPluginInterface;
@@ -11,10 +11,11 @@ use SprykerMiddleware\Zed\Process\Dependency\Plugin\Stream\OutputStreamPluginInt
 
 /**
  * @method \Pyz\Zed\ExampleProductMiddlewareConnector\Communication\ExampleProductMiddlewareConnectorCommunicationFactory getFactory()
+ * @method \Pyz\Zed\ExampleProductMiddlewareConnector\Business\ExampleProductMiddlewareConnectorFacadeInterface getFacade()
  */
-class ExampleProductTransformationProcessPlugin extends AbstractPlugin implements ProcessConfigurationPluginInterface
+class ExampleProductMiddlewareConnectorTransformationProcessPlugin extends AbstractPlugin implements ProcessConfigurationPluginInterface
 {
-    protected const PROCESS_NAME = 'EXAMPLE_PRODUCT_PROCESS';
+    protected const PROCESS_NAME = 'EXAMPLE_PRODUCT_IMPORT_PROCESS';
 
     /**
      * @return string
@@ -30,7 +31,7 @@ class ExampleProductTransformationProcessPlugin extends AbstractPlugin implement
     public function getInputStreamPlugin(): InputStreamPluginInterface
     {
         return $this->getFactory()
-            ->getExampleProductInputStreamPlugin();
+            ->getProductConcreteInputStreamPlugin();
     }
 
     /**
@@ -39,7 +40,7 @@ class ExampleProductTransformationProcessPlugin extends AbstractPlugin implement
     public function getOutputStreamPlugin(): OutputStreamPluginInterface
     {
         return $this->getFactory()
-            ->getExampleProductOutputStreamPlugin();
+            ->getProductConcreteOutputStreamPlugin();
     }
 
     /**
@@ -48,7 +49,7 @@ class ExampleProductTransformationProcessPlugin extends AbstractPlugin implement
     public function getIteratorPlugin(): ProcessIteratorPluginInterface
     {
         return $this->getFactory()
-            ->getExampleProductIteratorPlugin();
+            ->getProductConcreteIteratorPlugin();
     }
 
     /**
@@ -57,7 +58,7 @@ class ExampleProductTransformationProcessPlugin extends AbstractPlugin implement
     public function getStagePlugins(): array
     {
         return $this->getFactory()
-            ->getExampleProductStagePluginStack();
+            ->getProductConcreteStagePluginStack();
     }
 
     /**
@@ -66,7 +67,7 @@ class ExampleProductTransformationProcessPlugin extends AbstractPlugin implement
     public function getLoggerPlugin(): MiddlewareLoggerConfigPluginInterface
     {
         return $this->getFactory()
-            ->getExampleProductLoggerConfigPlugin();
+            ->getProductConcreteLoggerConfigPlugin();
     }
 
     /**

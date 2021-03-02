@@ -32,6 +32,7 @@ use Pyz\Zed\DataImport\Business\CombinedProduct\ProductPrice\CombinedProductPric
 use Pyz\Zed\DataImport\Business\CombinedProduct\ProductPrice\Writer\CombinedProductPricePropelDataSetWriter;
 use Pyz\Zed\DataImport\Business\CombinedProduct\ProductStock\CombinedProductStockHydratorStep;
 use Pyz\Zed\DataImport\Business\CombinedProduct\ProductStock\CombinedProductStockMandatoryColumnCondition;
+use Pyz\Zed\DataImport\Business\Importer\ExampleProductDataImporter;
 use Pyz\Zed\DataImport\Business\CombinedProduct\ProductStock\Writer\CombinedProductStockPropelDataSetWriter;
 use Pyz\Zed\DataImport\Business\Model\CategoryTemplate\CategoryTemplateWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CmsBlock\CmsBlockWriterStep;
@@ -75,6 +76,7 @@ use Pyz\Zed\DataImport\Business\Model\ProductConcrete\ProductConcreteCheckExiste
 use Pyz\Zed\DataImport\Business\Model\ProductConcrete\ProductConcreteHydratorStep;
 use Pyz\Zed\DataImport\Business\Model\ProductConcrete\ProductSkuToIdProductStep;
 use Pyz\Zed\DataImport\Business\Model\ProductConcrete\Writer\ProductConcretePropelDataSetWriter;
+use Pyz\Zed\DataImport\Business\Model\ProductConcrete\Writer\ProductConcreteWriterStep;
 use Pyz\Zed\DataImport\Business\Model\ProductGroup\ProductGroupWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductImage\ProductImageHydratorStep;
 use Pyz\Zed\DataImport\Business\Model\ProductImage\Repository\ProductImageRepository;
@@ -117,6 +119,7 @@ use Spryker\Zed\DataImport\Business\DataImportBusinessFactory as SprykerDataImpo
 use Spryker\Zed\DataImport\Business\Model\DataImporterInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataReader\DataReaderInterface;
+use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetStepBroker;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetWriterCollection;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetWriterInterface;
 use Spryker\Zed\Discount\DiscountConfig;
@@ -821,13 +824,46 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         return $dataImporter;
     }
 
-    public function createExampleProductMiddlewareDataImporter(): PyzDataImporterInterface
+    public function createProductConcreteMiddlewareDataImporter(): PyzDataImporterInterface
     {
         return new ProductConcreteDataImporter(
             $this->createDataImporterPublisher(),
-            $this->createProductAbstractImportDataSetStepBroker(),
+            $this->createProductConcreteImportDataSetStepBroker(),
             $this->createDataSet()
         );
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetStepBroker
+     */
+    public function createProductConcreteImportDataSetStepBroker(): DataSetStepBroker
+    {
+        /** @var DataSetStepBroker $dataSetStepBroker */
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
+        $dataSetStepBroker
+            ->addStep($this->createProductConcreteCheckExistenceStep())
+            ->addStep($this->createAddLocalesStep())
+            ->addStep($this->createAttributesExtractorStep())
+            ->addStep($this->createProductConcreteAttributesUniqueCheckStep())
+            ->addStep($this->createProductLocalizedAttributesExtractorStep([
+                ProductConcreteHydratorStep::COLUMN_NAME,
+                ProductConcreteHydratorStep::COLUMN_DESCRIPTION,
+                ProductConcreteHydratorStep::COLUMN_IS_SEARCHABLE,
+            ]))
+            ->addStep(new ProductConcreteHydratorStep(
+                $this->createProductRepository()
+            ))
+            ->addStep($this->createProductConcreteWriterStep());
+
+        return $dataSetStepBroker;
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
+     */
+    public function createProductConcreteWriterStep(): DataImportStepInterface
+    {
+        return new ProductConcreteWriterStep($this->createProductConcreteWriterPlugins());
     }
 
     /**

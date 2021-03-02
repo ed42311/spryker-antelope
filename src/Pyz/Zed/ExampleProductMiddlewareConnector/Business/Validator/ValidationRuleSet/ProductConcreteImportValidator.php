@@ -1,28 +1,34 @@
 <?php
-namespace Pyz\Zed\ExampleMiddlewareConnector\Business\Validator\ValidationRuleSet;
+
+namespace Pyz\Zed\ExampleProductMiddlewareConnector\Business\Validator\ValidationRuleSet;
 
 use SprykerMiddleware\Zed\Process\Business\Validator\ValidationRuleSet\AbstractValidationRuleSet;
 use SprykerMiddleware\Zed\Process\Communication\Plugin\Validator\NotBlankValidatorPlugin;
 use SprykerMiddleware\Zed\Process\Communication\Plugin\Validator\RequiredValidatorPlugin;
 
-class ExampleProductImportValidator extends AbstractValidationRuleSet
+class ProductConcreteImportValidator extends AbstractValidationRuleSet
 {
-    protected const NAME = 'name';
-    protected const COLOR = 'color';
+    protected const CONCRETE_SKU_KEY = 'item.*.@sku';
+    protected const ABSTRACT_SKU_KEY = 'item.*.productSKU';
+    protected const CONCRETE_NAME_KEY = 'item.*.name';
+
     /**
      * @return array
      */
     protected function getRules(): array
     {
         return [
-            static::NAME => [
+            static::CONCRETE_SKU_KEY => [
                 RequiredValidatorPlugin::NAME,
                 NotBlankValidatorPlugin::NAME,
             ],
-            static::COLOR => [
+            static::ABSTRACT_SKU_KEY => [
                 RequiredValidatorPlugin::NAME,
                 NotBlankValidatorPlugin::NAME,
-            ]
+            ],
+            static::CONCRETE_NAME_KEY => [
+                RequiredValidatorPlugin::NAME,
+            ],
         ];
     }
 }

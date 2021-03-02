@@ -1,15 +1,20 @@
 <?php
 
-namespace Pyz\Zed\ExampleProductConcreteMiddlewareConnector\Business\Stream;
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
 
-use Pyz\Zed\ExampleProductConcreteMiddlewareConnector\Dependency\Plugin\DataImporterPluginInterface;
+namespace Pyz\Zed\ExampleProductMiddlewareConnector\Business\Stream;
+
+use Pyz\Zed\ExampleProductMiddlewareConnector\Dependency\Plugin\DataImporterPluginInterface;
 use SprykerMiddleware\Shared\Process\Stream\WriteStreamInterface;
 use SprykerMiddleware\Zed\Process\Business\Exception\MethodNotSupportedException;
 
 class DataImportWriteStream implements WriteStreamInterface
 {
     /**
-     * @var \Pyz\Zed\ExampleProductConcreteMiddlewareConnector\Dependency\Plugin\DataImporterPluginInterface
+     * @var \Pyz\Zed\ExampleProductMiddlewareConnector\Dependency\Plugin\DataImporterPluginInterface
      */
     protected $dataImporterPlugin;
 
@@ -19,7 +24,7 @@ class DataImportWriteStream implements WriteStreamInterface
     protected $data = [];
 
     /**
-     * @param \Pyz\Zed\ExampleProductConcreteMiddlewareConnector\Dependency\Plugin\DataImporterPluginInterface $dataImporterPlugin
+     * @param \Pyz\Zed\ExampleProductMiddlewareConnector\Dependency\Plugin\DataImporterPluginInterface $dataImporterPlugin
      */
     public function __construct(DataImporterPluginInterface $dataImporterPlugin)
     {
