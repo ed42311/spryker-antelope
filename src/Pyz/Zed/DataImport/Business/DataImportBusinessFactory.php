@@ -8,7 +8,7 @@
 namespace Pyz\Zed\DataImport\Business;
 
 use Pyz\Zed\DataImport\Business\Model\Antelope\AntelopeWriterStep;
-use Pyz\Zed\CategoryDataImport\Business\Importer\DataImporterInterface as PyzDataImporterInterface;
+use Pyz\Zed\ExampleProductImport\Business\Importer\DataImporterInterface as PyzDataImporterInterface;
 use Generated\Shared\Transfer\DataImportConfigurationActionTransfer;
 use Generated\Shared\Transfer\DataImporterConfigurationTransfer;
 use Pyz\Zed\DataImport\Business\CombinedProduct\Product\CombinedAttributesExtractorStep;
@@ -32,7 +32,7 @@ use Pyz\Zed\DataImport\Business\CombinedProduct\ProductPrice\CombinedProductPric
 use Pyz\Zed\DataImport\Business\CombinedProduct\ProductPrice\Writer\CombinedProductPricePropelDataSetWriter;
 use Pyz\Zed\DataImport\Business\CombinedProduct\ProductStock\CombinedProductStockHydratorStep;
 use Pyz\Zed\DataImport\Business\CombinedProduct\ProductStock\CombinedProductStockMandatoryColumnCondition;
-use Pyz\Zed\DataImport\Business\Importer\ExampleProductDataImporter;
+use Pyz\Zed\DataImport\Business\Importer\ProductConcreteDataImporter;
 use Pyz\Zed\DataImport\Business\CombinedProduct\ProductStock\Writer\CombinedProductStockPropelDataSetWriter;
 use Pyz\Zed\DataImport\Business\Model\CategoryTemplate\CategoryTemplateWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CmsBlock\CmsBlockWriterStep;

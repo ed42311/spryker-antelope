@@ -1,20 +1,89 @@
 <items>
     <item sku="1234567">
         <productSKU>FLURP-CM8602</productSKU>
-        <name>9540833</name>
+        <name>
+            9540833
+            <de_DE>9540833</de_DE>
+        </name>
         <mfgPartNumber>CM5603-D15</mfgPartNumber>
         <IsReturnable>Yes</IsReturnable>
+        <attributes>
+            <attribute attribID="LP_1332736390113">
+                <name>Color</name>
+                <value>Black</value>
+                <uom></uom>
+                <uomForWeb></uomForWeb>
+            </attribute>
+            <attribute attribID="LP_1332736390217">
+                <name>Manufacturer Color</name>
+                <value>Black</value>
+                <uom></uom>
+                <uomForWeb></uomForWeb>
+            </attribute>
+            <attribute attribID="LP_1332736390090">
+                <name>Meh</name>
+                <value>M</value>
+                <uom></uom>
+                <uomForWeb></uomForWeb>
+            </attribute>
+        </attributes>
     </item>
     <item sku="1234568">
         <productSKU>FLURP-CM8601</productSKU>
-        <name>9540835</name>
+        <name>
+            9540835
+            <de_DE>9540835</de_DE>
+        </name>
         <mfgPartNumber>CM5603-D17</mfgPartNumber>
         <IsReturnable>Yes</IsReturnable>
+        <attributes>
+            <attribute attribID="LP_1332736390231">
+                <name>Color</name>
+                <value>Black</value>
+                <uom></uom>
+                <uomForWeb></uomForWeb>
+            </attribute>
+            <attribute attribID="LP_1332736390321">
+                <name>Manufacturer Color</name>
+                <value>Black</value>
+                <uom></uom>
+                <uomForWeb></uomForWeb>
+            </attribute>
+            <attribute attribID="LP_1332736390909">
+                <name>Meh</name>
+                <value>M</value>
+                <uom></uom>
+                <uomForWeb></uomForWeb>
+            </attribute>
+        </attributes>
     </item>
     <item sku="1234569">
         <productSKU>FLURP-CM8605</productSKU>
-        <name>9540831</name>
+        <name>
+            9540831
+            <de_DE>9540831</de_DE>
+        </name>
         <mfgPartNumber>CM5603-D16</mfgPartNumber>
         <IsReturnable>No</IsReturnable>
+        <attributes>
+            <attribute attribID="LP_1332736790231">
+                <name>Color</name>
+                <value>Black</value>
+                <uom></uom>
+                <uomForWeb></uomForWeb>
+            </attribute>
+            <attribute attribID="LP_1332736380321">
+                <name>Manufacturer Color</name>
+                <value>Black</value>
+                <uom></uom>
+                <uomForWeb></uomForWeb>
+            </attribute>
+            <attribute attribID="LP_1332736590909">
+                <name>Meh</name>
+                <value>M</value>
+                <uom></uom>
+                <uomForWeb></uomForWeb>
+            </attribute>
+        </attributes>
     </item>
 </items>
