@@ -4,7 +4,7 @@
            xsi:schemaLocation="spryker:transfer-01 http://static.spryker.com/transfer-01.xsd">
 
     <transfer name="Stock">
-        <property name="erpId" type="string"/>
-        <property name="pimId" type="int"/>
+        <property name="otherName" type="string"/>
+        <property name="testNum" type="int"/>
     </transfer>
 </transfers>
