@@ -5,12 +5,12 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Zed\StockDataImport\Business\Writer\DataSet;
+namespace Pyz\Zed\StockDataImport\Business\Writer\DataSet;
 
-interface StockDataSetInterface
+use Spryker\Zed\StockDataImport\Business\Writer\DataSet\StockDataSetInterface as SprykerStockDataSetInterface;
+
+interface StockDataSetInterface extends SprykerStockDataSetInterface
 {
-    public const COLUMN_NAME = 'name';
-    public const COLUMN_IS_ACTIVE = 'is_active';
-    public const COLUMN_OTHER_NAME = 'other_name';
-    public const COLUMN_TEST_NUM = 'test_num';
+    public const COLUMN_ERP_ID = 'erp_id';
+    public const COLUMN_PIM_ID = 'pim_id';
 }
