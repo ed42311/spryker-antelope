@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed"
+          xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd"
+          namespace="Orm\Zed\Stock\Persistence"
+          package="src.Orm.Zed.Stock.Persistence">
+
+    <table name="spy_stock">
+        <column name="other_name" type="VARCHAR" size="10" required="false"/>
+        <column name="test_num" type="INTEGER" required="false"/>
+        <unique>
+            <unique-column name="test_num"/>
+        </unique>
+    </table>
+
+</database>
