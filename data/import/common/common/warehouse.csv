@@ -1,8 +1,8 @@
-name,is_active
-Warehouse1,1
-Warehouse2,1
-Warehouse3,0
-Spryker MER000001 Warehouse 1,1
-Video King MER000002 Warehouse 1,1
-Budget Cameras MER000005 Warehouse 1,1
-Sony Experts MER000006 Warehouse 1,1
+name,is_active,other_name,test_num
+Warehouse1,1,wearHouse1,1
+Warehouse2,1,wearHouse2,2
+Warehouse3,0,wearHouse3,3
+Spryker MER000001 Warehouse 1,1,wearHouse4,4
+Video King MER000002 Warehouse 1,1,wearHouse5,5
+Budget Cameras MER000005 Warehouse 1,1,wearHouse6,6
+Sony Experts MER000006 Warehouse 1,1,wearHouse7,7
